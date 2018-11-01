@@ -38,14 +38,15 @@ def main(wf):
         region = init_db()
         data = region.binarySearch(wf.args[0])
         if data:
-            wf.add_item(title=wf.args[0], subtitle=data[
-                        'region'].decode('utf-8'), valid=True)
+            region = data['region'].decode('utf-8')
+            wf.add_item(title=wf.args[0],
+                        subtitle=region, arg=region, valid=True)
         else:
             wf.add_item(
                 title=wf.args[0], subtitle=u'Ip地址格式不正确', valid=True)
     else:
         ipaddr = get_local_ip()
-        wf.add_item(title=u'本机地址: %s' % ipaddr, valid=True)
+        wf.add_item(title=u'本机地址: %s' % ipaddr, arg=ipaddr, valid=True)
     wf.send_feedback()
 
 

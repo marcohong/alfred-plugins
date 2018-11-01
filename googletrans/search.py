@@ -20,6 +20,11 @@ LANG = {
     'en': ('en', 'zh-CN')
 }
 
+HEADERS = {
+    'user-agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36',
+    'accept-language': 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7,zh-TW;q=0.6',
+}
+
 
 def check_contain_chinese(text):
     for _str in text.decode('utf-8'):
@@ -51,7 +56,7 @@ def get_url(text, lang='zh'):
 
 
 def request_url(url):
-    req = web.get(url)
+    req = web.get(url, headers=HEADERS)
     req.raise_for_status()
     return req.json()
 
@@ -85,7 +90,8 @@ def process_child(wf, url, datas):
             for sub in data[2]:
                 subtitle = '{0}: {1}'.format(data[0], ', '.join(sub[1]))
                 wf.add_item(title=sub[0], subtitle=subtitle,
-                            arg=url, valid=True)
+                            quicklookurl=url, arg=sub[0],
+                            valid=True)
 
 
 def main(wf):
@@ -98,14 +104,16 @@ def main(wf):
             wf.add_item(title=u'翻译内容太长',
                         subtitle=u'翻译内容不能超过4891个字符', valid=True)
         else:
-            time.sleep(0.2)
+            time.sleep(0.1)
             data = google_translate(text)
             url = translate_url(text)
             if not data:
-                wf.add_item(title=text, subtitle=text, arg=url, valid=True)
+                wf.add_item(title=text, subtitle=text,
+                            quicklookurl=url, arg=text, valid=True)
             else:
                 result = data[0][0][0]
-                wf.add_item(title=text, subtitle=result, arg=url, valid=True)
+                wf.add_item(title=text, subtitle=result,
+                            quicklookurl=url, arg=text, valid=True)
                 if data[1]:
                     process_child(wf, url, data)
 
