@@ -2,7 +2,7 @@
 
 ![platform](https://img.shields.io/badge/platform-macos-lightgrey.svg)  ![language](https://img.shields.io/badge/language-python-blue.svg) 
 [![GitHub license](https://img.shields.io/github/license/TKkk-iOSer/wechat-workflow.svg)](https://github.com/TKkk-iOSer/wechat-workflow/blob/master/LICENSE)<br/>
-[//]:![release](https://img.shields.io/badge/release-v2.0-brightgreen.svg)
+
 macOS Alfred2/Alfred3插件<br/>
 
 ## 功能
@@ -11,9 +11,11 @@ macOS Alfred2/Alfred3插件<br/>
 
 ## Demo演示
 * IP地址转地区
+
 ![ipaddr](screenshots/ip2region.gif)
 
 * Google翻译(中英互译)
+
 ![translate](screenshots/google-translate.gif)
 
 ## 软件版本
