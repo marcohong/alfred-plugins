@@ -23,8 +23,8 @@ macOS Alfred2/Alfred3插件<br/>
 * 支持的版本 Alfred2/Alfred3
 
 ## 安装方法
-* 1、双击.alfredworkflow后缀文件即可完成安装
-* 2、把.alfredworkflow后缀文件拖到Alfred的Workflows选项卡中即可完成安装
+* 1、双击dist目录下.alfredworkflow后缀文件即可完成安装
+* 2、把dist目录下.alfredworkflow后缀文件拖到Alfred的Workflows选项卡中即可完成安装
 
 ## 问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
