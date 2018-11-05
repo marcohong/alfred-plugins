@@ -112,8 +112,8 @@ def main(wf):
                             quicklookurl=url, arg=text, valid=True)
             else:
                 result = data[0][0][0]
-                wf.add_item(title=text, subtitle=result,
-                            quicklookurl=url, arg=text, valid=True)
+                wf.add_item(title=result, subtitle=text,
+                            quicklookurl=url, arg=result, valid=True)
                 if data[1]:
                     process_child(wf, url, data)
 
